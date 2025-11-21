@@ -15,6 +15,15 @@ const Proyectos = () => {
   const fondoRef = useRef(null);
 
   useEffect(() => {
+    // Evitar listeners en móviles o dispositivos con pointer "coarse" para mejorar rendimiento
+    const isMobileOrCoarse = typeof window !== 'undefined' && (
+      window.matchMedia('(pointer: coarse)').matches ||
+      window.matchMedia('(max-width: 768px)').matches
+    );
+    if (isMobileOrCoarse) {
+      return; // no registrar eventos de linterna/fondo en móviles
+    }
+
     const handlePointerMove = (e) => {
       if (!areaRef.current) return;
       

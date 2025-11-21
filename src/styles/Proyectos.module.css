@@ -956,3 +956,13 @@
     border: 1px solid rgba(59, 130, 246, 0.2);
   }
 }
+
+/* Desactivar fondo animado y linterna en móviles y dispositivos con pointer: coarse */
+@media (max-width: 768px), (pointer: coarse) {
+  .fondoTexto {
+    display: none !important;
+  }
+  .proyectos {
+    touch-action: auto;
+  }
+}
