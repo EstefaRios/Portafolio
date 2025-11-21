@@ -1,0 +1,152 @@
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, #0a0a1a 0%, #0d0d2b 50%, #1a1a3a 100%);
+  border-top: 1px solid rgba(76, 107, 209, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.8rem, 1.5vw + 0.4rem, 0.9rem);
+  color: #ccc;
+  padding: clamp(0.8rem, 2vw + 0.3rem, 1.2rem) clamp(0.5rem, 1vw + 0.3rem, 0.8rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #60A5FA, #3B82F6, transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.35);
+  animation: glideLine 18s ease-in-out infinite;
+  will-change: left;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem;
+}
+
+.contenedor p {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.contenedor p:hover {
+  color: #4c6bd1;
+}
+
+@keyframes fadeInFooter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Animación suave lateral para la línea azul del footer */
+@keyframes glideLine {
+  0% {
+    left: 8%;
+  }
+  50% {
+    left: 92%;
+  }
+  100% {
+    left: 8%;
+  }
+}
+
+.contenedor p {
+  background: linear-gradient(
+    90deg,
+    #ccc 0%,
+    #fff 50%,
+    #ccc 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: clamp(0.6rem, 2vw + 0.2rem, 1rem) clamp(0.4rem, 1vw + 0.2rem, 0.6rem);
+    font-size: clamp(0.75rem, 2vw + 0.3rem, 0.85rem);
+  }
+  
+  .footer::before {
+    width: 40px;
+    height: 1.5px;
+  }
+  
+  .contenedor {
+    max-width: 600px;
+    padding: 0 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: clamp(0.5rem, 1.5vw + 0.2rem, 0.8rem) clamp(0.3rem, 0.8vw + 0.1rem, 0.5rem);
+    font-size: clamp(0.7rem, 2.5vw + 0.2rem, 0.8rem);
+  }
+  
+  .footer::before {
+    width: 30px;
+    height: 1px;
+  }
+  
+  .contenedor {
+    max-width: 400px;
+    padding: 0 0.6rem;
+  }
+  
+  .contenedor p {
+    letter-spacing: 0.3px;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer {
+    padding: clamp(0.4rem, 1.2vw + 0.1rem, 0.6rem) clamp(0.2rem, 0.6vw + 0.1rem, 0.4rem);
+    font-size: clamp(0.65rem, 3vw + 0.2rem, 0.75rem);
+  }
+  
+  .contenedor {
+    max-width: 320px;
+    padding: 0 0.5rem;
+  }
+  
+  .contenedor p {
+    letter-spacing: 0.2px;
+  }
+}
